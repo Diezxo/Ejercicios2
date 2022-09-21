@@ -4,7 +4,7 @@
     {
         public static void Main(string[] args)
         {
-            Console.WriteLine("Cuantos Empleados desea registrar?");
+            Console.Write("Cuantos Empleados desea registrar?");
             int Respuesta = Convert.ToInt32(Console.ReadLine());
             Empleados[] e = new Empleados[Respuesta];
             for (int i = 0; i < Respuesta; i++)
@@ -20,7 +20,7 @@
                 {
                     genero = "Mujer";
                 }
-                else
+                else if (genero == "si")
                 {
                     genero = "Hombre";
                 }
@@ -30,27 +30,38 @@
                 Console.WriteLine("                                    ");
                 //e[i].mostrar();
             }
+            int Mujeres=0;
+            int Hombres = 0;
             for(int i = 0; i < Respuesta; i++)
             {
                 if (e[i].getSueldo() >= 500 && e[i].getGenero() == "Mujer")
                 {
-                  Console.WriteLine("---------------------------------");
-                  Console.WriteLine("Mujeres con un sueldo mayor a 500");
-                  Console.WriteLine("---------------------------------");
-                    e[i].mostrardatos();
-                }
-               if (e[i].getSueldo() <= 400 && e[i].getGenero() == "Hombre")
-                {
-                 Console.WriteLine("---------------------------------");
-                 Console.WriteLine("Hombres con un sueldo menor a 400");
-                 Console.WriteLine("---------------------------------");
-                   e[i].mostrardatos();
+                    Mujeres++;
+                 
                 }
                 
+               if (e[i].getSueldo() <= 400 && e[i].getGenero() == "Hombre")
+                {
+                    Hombres++;
+
+                }
+                
+               
             }
-            
+            Console.WriteLine("Hay " + Mujeres + " Mujeres ganando mas de 500 dolares en la empresa");
+            Console.WriteLine("Hay " + Hombres + " Hombres ganando menos de 400 dolares en la empresa");
 
 
+
+            /* Console.WriteLine("---------------------------------");
+             Console.WriteLine("Hombres con un sueldo menor a 400");
+             Console.WriteLine("---------------------------------");
+             e[i].mostrardatos();
+
+            Console.WriteLine("---------------------------------");
+            Console.WriteLine("Mujeres con un sueldo mayor a 500");
+            Console.WriteLine("---------------------------------");
+            Console.WriteLine(Mujeres[i].getSueldo());*/
 
         }
     }
